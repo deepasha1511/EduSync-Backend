@@ -27,8 +27,6 @@ builder.Services.AddSwaggerGen();
 //     });
 // });
 
-//app.UseCors("AllowFrontend");
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
@@ -39,6 +37,8 @@ builder.Services.AddCors(options =>
                   .AllowAnyMethod();
         });
 });
+
+app.UseCors("AllowFrontend");
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
